@@ -1,36 +1,26 @@
-# API SISCAT-BR x CATATALOGAÇÃO FFAA
+# SERVCAT API
 
 ![](wiki/assets/webservice-siscatbr-1.png)
 
 ## Propósito:
 
-O Webservice de atualização de Segmentos de Catalogação, visa proporcionar a interoperabilidade dos dados do Sistema de Catalogação Brasileiro (SISCAT-BR - MC CATALOGUE 5.07, STANDARD EDITION) com sistemas logísiticos que façam uso desses dados, provendo de forma transparente os Segmentos de Dados de Catalogação, facilitando a manipulação e manutenção de uma determinada área dentro do universo da Catalogação.
+O Webservice...
 
 ## Informações Técnicas
 
-- **JAVA 8+**
-- **Maven 3.6+**
+- **JAVA 17+**
+
+- **Maven 3.9+**
+
 - **Arquitetura: REST** - (Representational State Transfer)
-- **Protocolo de comunicação: HTTPS**
-- **Autenticação: Autenticação Básica** (Basic Auth)
+
 - **Formato de Serialização de Dados: JSON** (JavaScript Object Notation)
-- **Protocolo de Criptografia: TLS 1.2**
+
+  
 
 ## Documentação do Projeto
 
-1. [Página de Documentação do Projeto](wiki/documentacao/README.md)
-2. [Página de Instalação do Projeto](wiki/instalacao/README.md)
-3. [Changelog do Projeto da API do SISCAT-BR](changelog.md)
-
-### Recursos disponíveis:
-
-- **/itens/ - 02 Endpoints**;
-- **/segmentoB/ - 01 Endpoint**;
-- **/segmentoC/ - 01 Endpoint;**
-- **/segmentoV/ - 03 Endpoints;**
-- **/segmento8/ - 01 Endpoint;**
-- **/segmentoK/situacao/ - 01 Endpoint;**
-- **/segmentos/ - 01 Endpoint;**
+1. XXX
 
 ### Utilizando Git e Gitflow para instalação do Projeto:
 
@@ -48,14 +38,14 @@ Este projeto está trabalhando com o **Git Flow**, portanto para que tenha um me
 
 ```bash
 # Clonando o projeto do site
-git clone git@gitlab.com:marinha-dabm/catalogacao/siscatbr-api.git
+git clone git@github.com:carlosanders/servcat-api.git
 
 # ou se desejar baixar para outra pasta
-git clone git@gitlab.com:marinha-dabm/catalogacao/siscatbr-api.git webservice-siscatbr
+git clone git@github.com:carlosanders/servcat-api.git webservice-servcat
 
 # se não possuir a chave SSH na conta tem baixar via HTTPS
 # será pedido usuario/senha da sua conta do http://www.gitlab.com
-git clone  https://gitlab.com/marinha-dabm/catalogacao/siscatbr-api.git
+git clone  https://github.com/carlosanders/servcat-api.git
 ```
 
 ##### Configurar o Git:
@@ -90,7 +80,8 @@ subl ~/.ssh/id_rsa.pub
 ```bash
 # verficar os branches trazidos do repositório com os commits
 git remote rename origin old-origin
-git remote add origin git@gitlab.com:mar-dabm/dep-60/siscatbr.git
+git remote add origin git@github.com:carlosanders/servcat-api.git
+git remote add origin https://github.com/carlosanders/servcat-api.git
 git push -u origin --all
 git push -u origin --tags
 ```
@@ -99,14 +90,14 @@ git push -u origin --tags
 
 ```bash
 # Dentro da raiz do projeto, como por exemplo em:
-cd C:\Users\DABM-6247\git\singra-siscatbr-api
+cd /d D:\projetos\java\fontes\2021\workspace-spring-tool-suite-4\web_services\servcat-api
 # execute o comando:
 mvn spring-boot:run
 # E para cancelar a execução use CTRL+C
 
 # caso desejar rodar pela IDE
 # Isso pode ser feito usando Run da IDE em:
-singra-siscatbr-api\src\main\java\mb\Application.java
+singra-siscatbr-api\src\main\java\mb\dabm\servcatapi\ServcatApiApplication.java
 ```
 
 #### Gerando o WAR:
@@ -115,7 +106,7 @@ Certifique-se de o arquivo `pom.xml` está configurado com a tag `packaging` par
 
 ```bash
 # Para gerar o war, pelo terminal vá na na raiz do projeto, como por exemplo em:
-carlosanders@LEOPARD8RD MINGW64 /d/projetos/java/webservice-siscatbr (develop)
+anders@msi /d/projetos/java/fontes/2021/workspace-spring-tool-suite-4/web_services/servcat-api (develop)
 # E digite os camandos:
 mvn clean package
 mvn package
