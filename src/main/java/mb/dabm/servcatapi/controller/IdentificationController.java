@@ -1,6 +1,8 @@
 package mb.dabm.servcatapi.controller;
 
 import java.util.List;
+
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import mb.dabm.servcatapi.entity.Identification;
@@ -35,5 +37,13 @@ public class IdentificationController {
         @RequestParam(value = "size", defaultValue = "20") int size
     ) {
         return ResponseEntity.ok(service.findAllDto(page, size));
+    }
+
+    @GetMapping("/{id}")
+    @Operation(summary = "Retorna um único objeto do Seg A, de acordo com a chave passada no Path")
+    public ResponseEntity<Identification> get(
+        @PathVariable("id")Long id
+    ){
+        return ResponseEntity.ok(service.findById(id));
     }
 }

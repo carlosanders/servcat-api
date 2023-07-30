@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "GENERAL", schema = "FEDLOGDB")
-@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
+@JsonIgnoreProperties(value = { "hibernate_lazy_initializer", "handler" })
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class Identification implements Serializable {
 

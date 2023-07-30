@@ -32,4 +32,9 @@ public class IdentificationService {
         val pages = repository.findAll(PageRequest.of(page, size));
         return identificationMapper.toRest(pages);
     }
+
+    public Identification findById(Long id){
+        return repository.getReferenceById(id);
+    }
+
 }
