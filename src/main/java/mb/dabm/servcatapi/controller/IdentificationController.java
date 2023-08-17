@@ -43,14 +43,6 @@ public class IdentificationController {
         return ResponseEntity.ok(service.findAll(page, size));
     }
 
-    @GetMapping("/dto")
-    public ResponseEntity<Page<IdentificationDto>> listAllDto(
-        @RequestParam(value = "page", defaultValue = "0") int page,
-        @RequestParam(value = "size", defaultValue = "20") int size
-    ) {
-        return ResponseEntity.ok(service.findAllDto(page, size));
-    }
-
     @GetMapping("/{id}")
     @Operation(summary = "Retorna um único objeto do Seg A, de acordo com a chave passada no Path")
     public ResponseEntity<Identification> get(
