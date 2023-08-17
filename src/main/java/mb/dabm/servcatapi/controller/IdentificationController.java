@@ -23,8 +23,6 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class IdentificationController {
 
-//    Logger logger = LogManager.getLogger(IdentificationController.class);
-
     @Autowired
     IdentificationService service;
 
@@ -33,12 +31,6 @@ public class IdentificationController {
         @RequestParam(value = "page", defaultValue = "0") int page,
         @RequestParam(value = "size", defaultValue = "20") int size
     ) {
-//        logger.trace("TRACE");
-//        logger.debug("DEBUG");
-//        logger.info("INFO");
-//        logger.warn("WARN");
-//        logger.error("ERROR");
-//        logger.fatal("FATAL");
 
         return ResponseEntity.ok(service.findAll(page, size));
     }
@@ -46,8 +38,49 @@ public class IdentificationController {
     @GetMapping("/{id}")
     @Operation(summary = "Retorna um único objeto do Seg A, de acordo com a chave passada no Path")
     public ResponseEntity<Identification> get(
-        @PathVariable("id")Long id
-    ){
+        @PathVariable("id") Long id
+    ) {
         return ResponseEntity.ok(service.findById(id));
+    }
+
+    /**
+     * Example 1 - Java DTO with JPQL
+     * ex: http://localhost:8080/identifications/dto?page=2&size=50
+     * @param page
+     * @param size
+     * @return
+     */
+    @GetMapping("/dto")
+    public ResponseEntity<Page<IdentificationDto>> listAllDto(
+        @RequestParam(value = "page", defaultValue = "0") int page,
+        @RequestParam(value = "size", defaultValue = "20") int size
+    ) {
+        return ResponseEntity.ok(service.getAllIdentificationDto(page, size));
+    }
+
+    /**
+     * Example 2 - Java DTO with JPQL
+     * ex: http://localhost:8080/identifications/inc/03988?page=1&size=30
+     * @param inc
+     * @param page
+     * @param size
+     * @return
+     */
+    @GetMapping("/inc/{inc}")
+    public ResponseEntity<Page<IdentificationDto>> listAllDtoByInc(
+        @PathVariable("inc") String inc,
+        @RequestParam(value = "page", defaultValue = "0") int page,
+        @RequestParam(value = "size", defaultValue = "20") int size
+    ) {
+        return ResponseEntity.ok(service.getAllIdentificationDtoByInc(inc, page, size));
+    }
+
+    @GetMapping("/fsc/{fsc}")
+    public ResponseEntity<Page<IdentificationDto>> listAllDtoByFsc(
+        @PathVariable("fsc") String fsc,
+        @RequestParam(value = "page", defaultValue = "0") int page,
+        @RequestParam(value = "size", defaultValue = "20") int size
+    ) {
+        return ResponseEntity.ok(service.getAllIdentificationDtoByFsc(fsc, page, size));
     }
 }

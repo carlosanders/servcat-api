@@ -13,11 +13,5 @@ public record IdentificationDto(
     String tiic,
     String rpdmrc,
     String fmsn,
-    String mgmtPmi,
-    String mgmtAdp,
-    String mgmtDml,
-    String mgmtEsdc,
-    String mgmtCc,
-    String mgmtHmic,
     String origem
 ) {}
