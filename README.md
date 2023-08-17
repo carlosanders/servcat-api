@@ -1,7 +1,5 @@
 # SERVCAT API
 
-![](wiki/assets/webservice-siscatbr-1.png)
-
 ## Propósito:
 
 O Webservice...
@@ -9,32 +7,9 @@ O Webservice...
 ## Informações Técnicas
 
 - **JAVA 17+**
-
 - **Maven 3.9+**
-
 - **Arquitetura: REST** - (Representational State Transfer)
-
 - **Formato de Serialização de Dados: JSON** (JavaScript Object Notation)
-
-  
-
-## Documentação do Projeto
-
-1. XXX
-
-### Utilizando Git e Gitflow para instalação do Projeto:
-
-Este projeto está trabalhando com o **Git Flow**, portanto para que tenha um melhor aproveitamento favor executar os procedimentos conforme orientação na página abaixo.
-
-1. [Tutorial do Git e Git-Flow](wiki/README.md)
-
-#### Clonado o Projeto
-
-##### Requisitos
-
-- Ter uma conta válida no site do [GitLab](http://www.gitlab.com)
-- Se possível ter cadastrado as chaves SSH da máquina no seu profile do site.
-- Clonando o projeto no repositório do [https://gitlab.com/mar-dabm/dep-60/siscatbr.git](https://gitlab.com/mar-dabm/dep-60/siscatbr.git)
 
 ```bash
 # Clonando o projeto do site
@@ -65,8 +40,6 @@ git config --list
 
 ##### Criando um chave SSH Para criar uma chave privada/publica no git:
 
-Para cadastrar uma chave privado no seu computador proceda conforme comandos abaixo. Após será necessário copiar a chave pública e disponibilizar em seu profile na conta criada no [Git Lab](https://gitlab.com/profile/keys).
-
 ```bash
 ssh-keygen -t rsa -C "seuemails@provedor.com"
 # Para listar a chave pública
@@ -90,14 +63,14 @@ git push -u origin --tags
 
 ```bash
 # Dentro da raiz do projeto, como por exemplo em:
-cd /d D:\projetos\java\fontes\2021\workspace-spring-tool-suite-4\web_services\servcat-api
+cd /d ...\web_services\servcat-api
 # execute o comando:
 mvn spring-boot:run
 # E para cancelar a execução use CTRL+C
 
 # caso desejar rodar pela IDE
 # Isso pode ser feito usando Run da IDE em:
-singra-siscatbr-api\src\main\java\mb\dabm\servcatapi\ServcatApiApplication.java
+servcat-api\src\main\java\mb\dabm\servcatapi\ServcatApiApplication.java
 ```
 
 #### Gerando o WAR:
@@ -106,7 +79,7 @@ Certifique-se de o arquivo `pom.xml` está configurado com a tag `packaging` par
 
 ```bash
 # Para gerar o war, pelo terminal vá na na raiz do projeto, como por exemplo em:
-anders@msi /d/projetos/java/fontes/2021/workspace-spring-tool-suite-4/web_services/servcat-api (develop)
+../web_services/servcat-api
 # E digite os camandos:
 mvn clean package
 mvn package
@@ -135,7 +108,7 @@ Alterar a tag `finalName` dentro do arquivo `pom.xml`
 ```xml
 <!-- exemplo: -->
 <build>
-    <finalName>api-siscatbr-singra-prod</finalName>
+    <finalName>servcat-api</finalName>
     <plugins>
         <plugin>
             <groupId>org.springframework.boot</groupId>
@@ -144,6 +117,3 @@ Alterar a tag `finalName` dentro do arquivo `pom.xml`
     </plugins>
 </build>
 ```
-
-
-
